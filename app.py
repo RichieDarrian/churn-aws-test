@@ -76,9 +76,16 @@ if st.button("Predict", type="primary"):
         st.error(f"AWS error: {e.response['Error'].get('Message', str(e))}")
 
     else:
-        label = result["labels"][0]
         probs = result["probabilities"][0]
-
-        st.success(f"Predicted Churn: **{label}**")
+        labels = ["No Churn", "Churn"]
+        predicted_label = labels[result["predictions"][0]]
+        
+        st.success(f"Predicted Churn: **{predicted_label}**")
         st.write("Class probabilities:")
-        st.bar_chart({"probability": probs})
+        
+        chart_data = {
+            labels[0]: probs[0],
+            labels[1]: probs[1],
+        }
+        
+        st.bar_chart(chart_data)
