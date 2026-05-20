@@ -54,13 +54,13 @@ if st.button("Predict", type="primary"):
         "Age": int(age),
         "Gender": gender,
         "Tenure": int(tenure),
-        "UsageFrequency": int(usage_frequency),
-        "SupportCalls": int(support_calls),
-        "PaymentDelay": int(payment_delay),
-        "SubscriptionType": subscription_type,
-        "ContractLength": contract_length,
-        "TotalSpend": int(total_spend),
-        "LastInteraction": int(last_interaction),
+        "Usage Frequency": int(usage_frequency),
+        "Support Calls": int(support_calls),
+        "Payment Delay": int(payment_delay),
+        "Subscription Type": subscription_type,
+        "Contract Length": contract_length,
+        "Total Spend": int(total_spend),
+        "Last Interaction": int(last_interaction),
     }
 
     try:
