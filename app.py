@@ -78,14 +78,17 @@ if st.button("Predict", type="primary"):
     else:
         probs = result["probabilities"][0]
         labels = ["No Churn", "Churn"]
+    
         predicted_label = labels[result["predictions"][0]]
-        
+    
         st.success(f"Predicted Churn: **{predicted_label}**")
         st.write("Class probabilities:")
-        
-        chart_data = {
-            labels[0]: probs[0],
-            labels[1]: probs[1],
-        }
-        
-        st.bar_chart(chart_data)
+    
+        import pandas as pd
+    
+        chart_df = pd.DataFrame(
+            {"Probability": probs},
+            index=labels
+        )
+    
+        st.bar_chart(chart_df)
